@@ -17,7 +17,7 @@ namespace Skybot.Accounts.Function
             QueueClient = new QueueClient(Settings.BusConnectionString, Settings.IncomingRequestsQueue);
         }
 
-        [FunctionName("SkybotRegistrar")]
+        [FunctionName("SkybotAccountsFunc")]
         public static async void Run([ServiceBusTrigger("incomingtexts", Connection = "SkybotBusConnectionString")]string message, ILogger log)
         {
             log.LogInformation($"incomingtexts queue trigger function processed message: {message}");
