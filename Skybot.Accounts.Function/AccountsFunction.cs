@@ -30,6 +30,8 @@ namespace Skybot.Accounts.Function
             {
                 log.LogInformation($"Phone number '{textMessage.FromNumber}' exists");
                 PushToQueue(await AccountsClient.GetAccount(textMessage.FromNumber), Settings.IncomingRequestsQueue);
+
+                return;
             }
 
             log.LogInformation($"Phone number '{textMessage.FromNumber}' doesn't exist, creating account...");
